@@ -1,0 +1,9 @@
+# Shell scripts and server config must use LF so they run on the Linux server
+# (a CRLF shebang breaks bash with a "bad interpreter" error).
+*.sh                      text eol=lf
+deploy/Caddyfile          text eol=lf
+deploy/portfolio.service  text eol=lf
+
+# Binary assets — never normalize
+*.pdf  binary
+*.svg  text
