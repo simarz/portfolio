@@ -1,17 +1,17 @@
 # Caddy reverse proxy for the portfolio.
 #
-# Replace example.com with your real domain (its DNS A record must point at this
-# EC2 instance's public IP). Caddy then provisions a free Let's Encrypt
-# certificate automatically and serves HTTPS — no extra config needed.
+# Both gursimar.xyz and www.gursimar.xyz need DNS A records pointing at this
+# EC2 instance's Elastic IP, set to "DNS only" (grey cloud) in Cloudflare so
+# Caddy can provision its own Let's Encrypt certificates.
 #
 # Install to /etc/caddy/Caddyfile, then: sudo systemctl reload caddy
 
-example.com {
+gursimar.xyz {
 	encode zstd gzip
 	reverse_proxy 127.0.0.1:8080
 }
 
-# Optional: also handle the www subdomain by redirecting it to the apex.
-# www.example.com {
-# 	redir https://example.com{uri}
-# }
+# Send www to the bare domain.
+www.gursimar.xyz {
+	redir https://gursimar.xyz{uri}
+}
