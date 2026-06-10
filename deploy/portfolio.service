@@ -1,0 +1,25 @@
+[Unit]
+Description=Gursimar Gill portfolio (Axum)
+After=network.target
+
+[Service]
+Type=simple
+User=portfolio
+WorkingDirectory=/opt/portfolio
+# The server binds 0.0.0.0:8080 internally; Caddy proxies to it over localhost.
+# Do NOT open port 8080 in the EC2 security group — only 80/443 (and 22).
+Environment=PORT=8080
+Environment=STATIC_DIR=/opt/portfolio/static
+Environment=DATA_DIR=/opt/portfolio/data
+Environment=RUST_LOG=info
+ExecStart=/opt/portfolio/portfolio-backend
+Restart=on-failure
+RestartSec=3
+# Light hardening
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
