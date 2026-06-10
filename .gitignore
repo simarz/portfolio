@@ -1,0 +1,13 @@
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Backend
+backend/target/
+backend/static/
+backend/data/
+
+# Editor / OS
+.DS_Store
+.vscode/
+*.log
