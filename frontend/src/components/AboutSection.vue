@@ -15,17 +15,16 @@
         <div class="about__text reveal">
           <p class="about__p">
             I'm a Computer Science student at <b>Stony Brook University</b>
-            <span class="hl">(GPA 3.84, graduating December 2028)</span> who likes turning
-            messy, manual workflows into clean, reliable software.
+            <span class="hl">(GPA 3.84, graduating December 2028)</span>.
           </p>
           <p class="about__p">
-            Most recently I helped rebuild <b>Blackfacts.com/news</b> as part of a 3-person team
-            at <b>RFCUNY</b> — owning React components on the front end and Python services on the
+            Most recently I helped rebuild <b>Blackfacts.com/news (not yet pushed to prod)</b> as part of a 3-person team
+            at <b>RFCUNY</b>, owning React components on the front end and Python services on the
             back end for an article database of <b>over a million records</b>.
           </p>
           <p class="about__p">
             Outside of class I ship side projects: a serverless Gmail follow-up agent on Azure and
-            a Discord bot running in 200+ communities. I'm currently working through the
+            a Discord bot that ran in 200+ communities. I'm currently working through the
             <b>Deep Learning Specialization</b>.
           </p>
 

@@ -18,14 +18,37 @@ function onMove(e: PointerEvent) {
       </div>
 
       <div class="projects__grid">
-        <article class="card reveal" @pointermove="onMove">
+       
+<article class="card reveal" @pointermove="onMove">
+          <div class="card__top">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18" /><path d="M6.5 6.5h.01M9 6.5h.01" /></svg>
+            </div>
+            <div class="card__links">
+              <a class="card__link" href="https://github.com/simarz/portfolio" target="_blank" rel="noopener">GitHub ↗</a>
+              <span class="card__idx">PROJ_03</span>
+            </div>
+          </div>
+          <h3 class="card__title">This Website</h3>
+          <p class="card__tagline">A full-stack portfolio served as a single Rust binary, the site you're reading now.</p>
+          <ul class="card__points">
+            <li>Built a <b>Vue 3 + TypeScript</b> single-page front end and a <b>Rust (Axum)</b> back end that serves both the SPA and a JSON API from <b>one binary</b>.</li>
+            <li>Implemented a working <b>contact form</b> with shared client/server validation that persists submissions on the server.</li>
+            <li>Self-hosted on an <b>AWS EC2</b> free-tier instance behind <b>Caddy</b> with automatic HTTPS, fronted by Cloudflare DNS.</li>
+            <li>Deploys as a single systemd service with a one-command build-and-restart update script.</li>
+          </ul>
+          <div class="card__stack">
+            <span class="chip">Rust</span><span class="chip">Axum</span><span class="chip">Vue 3</span><span class="chip">TypeScript</span><span class="chip">Vite</span><span class="chip">AWS EC2</span><span class="chip">Caddy</span>
+          </div>
+        </article>
+         <article class="card reveal" @pointermove="onMove">
           <div class="card__top">
             <div class="card__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-6-6-6" /><path d="M12 19h8" /></svg>
             </div>
             <div class="card__links">
               <a class="card__link" href="#" title="Repository coming soon" aria-label="GitHub repository (coming soon)" @click.prevent>GitHub ↗</a>
-              <span class="card__idx">PROJ_01</span>
+              <span class="card__idx">PROJ_02</span>
             </div>
           </div>
           <h3 class="card__title">Founder Follow-up Agent</h3>
@@ -40,15 +63,14 @@ function onMove(e: PointerEvent) {
             <span class="chip">Python</span><span class="chip">Azure Functions</span><span class="chip">Gmail API</span><span class="chip">OAuth 2.0</span><span class="chip">Blob Storage</span>
           </div>
         </article>
-
         <article class="card reveal" @pointermove="onMove">
           <div class="card__top">
             <div class="card__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a1 1 0 1 0 2 0 1 1 0 1 0-2 0M14 12a1 1 0 1 0 2 0 1 1 0 1 0-2 0" /><path d="M7.5 16.5c4.5 1.5 7.5 0 9-.5" /><path d="M16 18a14 14 0 0 0 2.4-9 7 7 0 0 0-3.4-1.7l-.7 1.4a12 12 0 0 0-4.6 0L9 7.3A7 7 0 0 0 5.6 9 14 14 0 0 0 8 18l.9-1.3" /></svg>
             </div>
             <div class="card__links">
-              <a class="card__link" href="#" title="Repository coming soon" aria-label="GitHub repository (coming soon)" @click.prevent>GitHub ↗</a>
-              <span class="card__idx">PROJ_02</span>
+              <a class="card__link" href="#" title="GitHub not available" aria-label="GitHub not available" @click.prevent>GitHub not available</a>
+              <span class="card__idx">PROJ_01</span>
             </div>
           </div>
           <h3 class="card__title">Discord Bot</h3>
@@ -60,6 +82,8 @@ function onMove(e: PointerEvent) {
             <span class="chip">Python</span><span class="chip">discord.py</span><span class="chip">Git</span>
           </div>
         </article>
+
+        
       </div>
     </div>
   </section>
