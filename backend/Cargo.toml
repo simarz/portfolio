@@ -11,6 +11,9 @@ tower = { version = "0.5", features = ["util"] }
 tower-http = { version = "0.6", features = ["fs", "trace", "cors"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+# Blocking HTTP client for the Resend email API. Uses rustls + ring (no OpenSSL
+# / aws-lc), which builds cleanly on both windows-gnu and Linux.
+ureq = { version = "2", features = ["json"] }
 chrono = { version = "0.4", features = ["clock", "serde"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }

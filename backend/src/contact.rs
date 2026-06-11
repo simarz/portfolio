@@ -62,6 +62,13 @@ pub async fn submit(
     match persist(&state, &record) {
         Ok(()) => {
             tracing::info!("contact message from {} <{}>", record.name, record.email);
+            // Email is best-effort: the message is already saved to disk, so a
+            // delivery failure shouldn't fail the request or lose the message.
+            if let Err(e) =
+                crate::email::notify(&state.email, record.name, record.email, record.message).await
+            {
+                tracing::error!("contact email failed (message was still saved): {e}");
+            }
             (StatusCode::OK, Json(ApiOk { ok: true })).into_response()
         }
         Err(e) => {

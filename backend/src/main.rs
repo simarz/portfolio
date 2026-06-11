@@ -12,6 +12,7 @@
 //!   DATA_DIR   — where messages are saved (default: data)
 
 mod contact;
+mod email;
 
 use std::net::SocketAddr;
 use std::path::PathBuf;
@@ -36,6 +37,8 @@ pub struct AppState {
     pub static_dir: PathBuf,
     /// The SPA shell (index.html), held in memory for the fallback route.
     pub index_html: Arc<str>,
+    /// Email-notification settings for contact submissions.
+    pub email: email::EmailConfig,
 }
 
 #[tokio::main]
@@ -69,10 +72,18 @@ async fn main() {
         })
         .into();
 
+    let email_cfg = email::EmailConfig::from_env();
+    if email_cfg.enabled() {
+        tracing::info!("contact email enabled → {}", email_cfg.to);
+    } else {
+        tracing::info!("contact email disabled (set RESEND_API_KEY to enable); messages saved to file only");
+    }
+
     let state = AppState {
         data_dir,
         static_dir,
         index_html,
+        email: email_cfg,
     };
 
     let app = Router::new()

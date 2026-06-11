@@ -101,16 +101,35 @@ Pull/copy the new code to the box, then:
 
 It rebuilds and restarts the service (Caddy keeps running untouched).
 
-## Reading contact-form submissions
+## Contact-form submissions
 
-Messages are appended to a file on the server:
+Every submission is always appended to a file on the server (durable backup):
 
 ```bash
 cat /opt/portfolio/data/messages.jsonl
 ```
 
-(That's the current behavior. If you'd rather have each submission **emailed** to your
-Gmail, ask and I'll add Resend/SMTP to the backend — then you won't need to read this file.)
+### Email notifications (Resend)
+
+The server also emails each submission to you when a Resend API key is configured. The key
+is read from `/etc/portfolio.env` (referenced by the systemd unit, kept out of git):
+
+1. Sign up at <https://resend.com> **with the same Gmail you want to receive at** — that lets
+   Resend's test sender (`onboarding@resend.dev`) deliver to you without verifying a domain.
+2. Create an **API key** (Resend dashboard → API Keys).
+3. On the server, write it to the env file and restart:
+   ```bash
+   echo 'RESEND_API_KEY=re_your_key_here' | sudo tee /etc/portfolio.env >/dev/null
+   sudo chmod 600 /etc/portfolio.env
+   sudo systemctl restart portfolio
+   ```
+
+Tune the recipient/sender via the same file if needed:
+`CONTACT_TO=you@example.com`, `CONTACT_FROM=Name <onboarding@resend.dev>`.
+Replies to the notification go to the visitor's address (set as `reply_to`).
+
+Later, to send *from* your own domain (e.g. `contact@gursimar.xyz`) instead of the test
+sender, verify gursimar.xyz in Resend and set `CONTACT_FROM` accordingly.
 
 ## Useful commands
 

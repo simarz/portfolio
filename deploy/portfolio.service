@@ -12,6 +12,9 @@ Environment=PORT=8080
 Environment=STATIC_DIR=/opt/portfolio/static
 Environment=DATA_DIR=/opt/portfolio/data
 Environment=RUST_LOG=info
+# Secrets (e.g. RESEND_API_KEY for contact-form email) live here, NOT in git.
+# The leading "-" makes it optional so the service still starts if the file is absent.
+EnvironmentFile=-/etc/portfolio.env
 ExecStart=/opt/portfolio/portfolio-backend
 Restart=on-failure
 RestartSec=3

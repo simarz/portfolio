@@ -28,6 +28,10 @@ sudo mv -f "$APP_DIR/portfolio-backend.new" "$APP_DIR/portfolio-backend"
 sudo rsync -a --delete backend/static/ "$APP_DIR/static/"
 sudo chown -R "$SERVICE_USER:$SERVICE_USER" "$APP_DIR"
 
+echo "==> Syncing systemd unit"
+sudo cp deploy/portfolio.service /etc/systemd/system/portfolio.service
+sudo systemctl daemon-reload
+
 echo "==> Restarting service"
 sudo systemctl restart portfolio
 sudo systemctl --no-pager status portfolio | head -n 6
