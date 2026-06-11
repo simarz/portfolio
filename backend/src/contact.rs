@@ -9,7 +9,7 @@ use std::io::Write;
 
 use axum::Json;
 use axum::extract::State;
-use axum::http::StatusCode;
+use axum::http::{HeaderMap, StatusCode};
 use axum::response::{IntoResponse, Response};
 use serde::{Deserialize, Serialize};
 
@@ -23,6 +23,10 @@ pub struct ContactForm {
     pub email: String,
     #[serde(default)]
     pub message: String,
+    /// Honeypot: a hidden field humans never fill. If it's non-empty, the
+    /// submission is from a bot and is silently dropped.
+    #[serde(default)]
+    pub company: String,
 }
 
 #[derive(Debug, Serialize)]
@@ -46,8 +50,28 @@ struct ApiOk {
 /// POST /api/contact
 pub async fn submit(
     State(state): State<AppState>,
+    headers: HeaderMap,
     Json(form): Json<ContactForm>,
 ) -> Response {
+    // Per-IP rate limit. The real client IP comes from Caddy's X-Forwarded-For.
+    let client = client_key(&headers);
+    if !state.rate.check(&client) {
+        return (
+            StatusCode::TOO_MANY_REQUESTS,
+            Json(ApiError {
+                error: "Too many submissions. Please wait a minute and try again.".into(),
+            }),
+        )
+            .into_response();
+    }
+
+    // Honeypot: real users can't see/fill this field; bots do. Pretend success
+    // so the bot gets no signal, but drop the message (no save, no email).
+    if !form.company.trim().is_empty() {
+        tracing::debug!("honeypot triggered from {client}; dropping submission");
+        return (StatusCode::OK, Json(ApiOk { ok: true })).into_response();
+    }
+
     if let Err(msg) = validate(&form) {
         return (StatusCode::BAD_REQUEST, Json(ApiError { error: msg })).into_response();
     }
@@ -118,6 +142,19 @@ fn looks_like_email(email: &str) -> bool {
     }
 }
 
+/// Best-effort client identifier for rate limiting: the first IP in the proxy's
+/// `X-Forwarded-For` header (Caddy sets this), falling back to a shared key.
+fn client_key(headers: &HeaderMap) -> String {
+    headers
+        .get("x-forwarded-for")
+        .and_then(|v| v.to_str().ok())
+        .and_then(|s| s.split(',').next())
+        .map(str::trim)
+        .filter(|s| !s.is_empty())
+        .unwrap_or("unknown")
+        .to_string()
+}
+
 fn persist(state: &AppState, record: &StoredMessage<'_>) -> std::io::Result<()> {
     std::fs::create_dir_all(&state.data_dir)?;
     let path = state.data_dir.join("messages.jsonl");
@@ -138,6 +175,7 @@ mod tests {
             name: name.into(),
             email: email.into(),
             message: message.into(),
+            company: String::new(),
         }
     }
 

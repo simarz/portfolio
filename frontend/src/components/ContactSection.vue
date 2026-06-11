@@ -3,7 +3,9 @@ import { reactive, ref } from 'vue'
 
 type State = 'idle' | 'sending'
 
-const form = reactive({ name: '', email: '', message: '' })
+// `company` is a honeypot — hidden from real users; bots that fill it are
+// silently dropped by the server.
+const form = reactive({ name: '', email: '', message: '', company: '' })
 const errors = reactive<{ name: string; email: string; message: string }>({
   name: '',
   email: '',
@@ -112,6 +114,19 @@ async function submit() {
         </div>
 
         <form class="form reveal" :data-state="state" novalidate @submit.prevent="submit">
+          <!-- Honeypot: hidden from humans, off-screen and skipped by tab/SR. -->
+          <div class="hp" aria-hidden="true">
+            <label>Company
+              <input
+                v-model="form.company"
+                type="text"
+                name="company"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </label>
+          </div>
+
           <div class="form__row">
             <div class="field" :class="{ 'field--err': errors.name }">
               <label for="f-name">Name <span class="req">*</span></label>
@@ -166,3 +181,14 @@ async function submit() {
     </div>
   </section>
 </template>
+
+<style scoped>
+/* Honeypot — visually removed but still present in the DOM for bots to fill. */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+</style>

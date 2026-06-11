@@ -13,10 +13,12 @@
 
 mod contact;
 mod email;
+mod ratelimit;
 
 use std::net::SocketAddr;
 use std::path::PathBuf;
 use std::sync::Arc;
+use std::time::Duration;
 
 use axum::Router;
 use axum::body::Body;
@@ -39,6 +41,8 @@ pub struct AppState {
     pub index_html: Arc<str>,
     /// Email-notification settings for contact submissions.
     pub email: email::EmailConfig,
+    /// Per-IP rate limiter for the contact endpoint.
+    pub rate: Arc<ratelimit::RateLimiter>,
 }
 
 #[tokio::main]
@@ -79,11 +83,15 @@ async fn main() {
         tracing::info!("contact email disabled (set RESEND_API_KEY to enable); messages saved to file only");
     }
 
+    // Contact endpoint: at most 5 submissions per minute per client IP.
+    let rate = Arc::new(ratelimit::RateLimiter::new(5, Duration::from_secs(60)));
+
     let state = AppState {
         data_dir,
         static_dir,
         index_html,
         email: email_cfg,
+        rate,
     };
 
     let app = Router::new()
