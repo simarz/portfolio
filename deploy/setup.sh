@@ -48,7 +48,10 @@ echo "==> [5/6] Build frontend (-> backend/static) and backend (release)"
 echo "==> [6/6] Install to $APP_DIR + systemd service"
 sudo useradd --system --no-create-home --shell /usr/sbin/nologin "$SERVICE_USER" 2>/dev/null || true
 sudo mkdir -p "$APP_DIR/static" "$APP_DIR/data"
-sudo cp backend/target/release/portfolio-backend "$APP_DIR/portfolio-backend"
+# Atomic replace so re-running setup.sh while the service is live can't hit
+# "Text file busy" overwriting the running binary.
+sudo cp backend/target/release/portfolio-backend "$APP_DIR/portfolio-backend.new"
+sudo mv -f "$APP_DIR/portfolio-backend.new" "$APP_DIR/portfolio-backend"
 sudo rsync -a --delete backend/static/ "$APP_DIR/static/"
 sudo cp deploy/portfolio.service /etc/systemd/system/portfolio.service
 # data/ must stay writable by the service; don't clobber existing messages.

@@ -21,7 +21,10 @@ echo "==> Building frontend + backend"
 ( cd backend && cargo build --release )
 
 echo "==> Installing new build"
-sudo cp backend/target/release/portfolio-backend "$APP_DIR/portfolio-backend"
+# Replace the binary atomically: you can't `cp` over a running executable
+# ("Text file busy"), but `mv` swaps the directory entry and works fine.
+sudo cp backend/target/release/portfolio-backend "$APP_DIR/portfolio-backend.new"
+sudo mv -f "$APP_DIR/portfolio-backend.new" "$APP_DIR/portfolio-backend"
 sudo rsync -a --delete backend/static/ "$APP_DIR/static/"
 sudo chown -R "$SERVICE_USER:$SERVICE_USER" "$APP_DIR"
 
