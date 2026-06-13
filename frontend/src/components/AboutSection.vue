@@ -41,20 +41,20 @@
           </div>
         </div>
         
-        
-        
-        <aside class="edu reveal">
-          <p class="edu__tag">Education</p>
-          <h3 class="edu__school">Stony Brook University</h3>
-          <p class="edu__degree">B.S. in Computer Science | AI and Data Science</p>
-          <div class="edu__meta">
-            <span>Expected Dec 2028</span>
-            <span>GPA <b>3.84 / 4.0</b></span>
+        <aside class="spec" aria-hidden="true">
+          <div class="spec__bar">
+            <span class="spec__lights"><i></i><i></i><i></i></span>
+            gursimar@portfolio: ~ $ whoami
           </div>
-          <div class="edu__courses">
-            <span class="tag">Calculus I &amp; II</span>
-            <span class="tag">Software &amp; Analysis I</span>
-            <span class="tag">Discrete Structures</span>
+          <div class="spec__body">
+            <div class="spec__row"><span class="spec__k">name</span><span class="spec__v">Gursimar Gill</span></div>
+            <div class="spec__row"><span class="spec__k">role</span><span class="spec__v">Software Engineer</span></div>
+            <div class="spec__row"><span class="spec__k">school</span><span class="spec__v">Stony Brook University</span></div>
+            <div class="spec__row"><span class="spec__k">focus</span><span class="spec__v">Full-stack · <span class="accent">Machine Learning</span></span></div>
+            <div class="spec__sep"></div>
+            <div class="spec__row"><span class="spec__k">grad</span><span class="spec__v">Dec 2028 · GPA <span class="accent">3.84</span></span></div>
+            <div class="spec__sep"></div>
+            <div class="spec__row"><span class="spec__k">status</span><span class="spec__v spec__status"><span class="spec__dot"></span>Open to internships</span></div>
           </div>
         </aside>
       </div>

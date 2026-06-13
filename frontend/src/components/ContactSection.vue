@@ -103,8 +103,7 @@ async function submit() {
         <div class="contact__intro reveal">
           <p class="contact__lead">
             I'm always open to interesting projects, internships, and conversations. Drop me a
-            message or reach me directly at
-            <a href="mailto:gursimargill1@gmail.com">gursimargill1@gmail.com</a>.
+            message ➔
           </p>
           <div class="contact__direct">
             <a href="mailto:gursimargill1@gmail.com"><span class="ck">email</span>gursimargill1@gmail.com</a>
