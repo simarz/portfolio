@@ -47,7 +47,7 @@ function onMove(e: PointerEvent) {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-6-6-6" /><path d="M12 19h8" /></svg>
             </div>
             <div class="card__links">
-              <a class="card__link" href="#" title="Repository coming soon" aria-label="GitHub repository (coming soon)" @click.prevent>GitHub ↗</a>
+              <a class="card__link" href="https://github.com/simarz/founder-outreach-agent" target="_blank" rel="noopener">GitHub ↗</a>
               <span class="card__idx">PROJ_02</span>
             </div>
           </div>
