@@ -18,8 +18,31 @@ function onMove(e: PointerEvent) {
       </div>
 
       <div class="projects__grid">
-       
-<article class="card reveal" @pointermove="onMove">
+
+        <article class="card reveal" @pointermove="onMove">
+          <div class="card__top">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 3v18" /><path d="M3 12h18" /><path d="M5.64 5.64A12.7 12.7 0 0 1 12 12a12.7 12.7 0 0 1-6.36 6.36" /><path d="M18.36 5.64A12.7 12.7 0 0 0 12 12a12.7 12.7 0 0 0 6.36 6.36" /></svg>
+            </div>
+            <div class="card__links">
+              <a class="card__link" href="https://github.com/simarz/HoopPulse" target="_blank" rel="noopener">GitHub ↗</a>
+              <span class="card__idx">PROJ_04</span>
+            </div>
+          </div>
+          <h3 class="card__title">HoopPulse</h3>
+          <p class="card__tagline">A full-stack NBA analytics dashboard with live scores, player &amp; team stats, and data-backed betting prop picks.</p>
+          <ul class="card__points">
+            <li>Built a full-stack NBA analytics dashboard, a <b>React 19 + TypeScript</b> front end (Vite, TanStack Query, React Router) on a <b>Python (FastAPI)</b> back end. Serves live scoreboards, league-wide player/team stats, and betting prop recommendations.</li>
+            <li>Engineered a <b>prop recommendation engine</b> that scores each player line by how often the player cleared it across their last 5 games, fanning out the per-player game-log lookups concurrently with <b>asyncio</b> and a bounded semaphore to stay within NBA API limits.</li>
+            <li>Aggregates two live third-party feeds <b>stats.nba.com</b> (via <b>nba_api</b>) and <b>The Odds API</b> offloading their blocking calls to worker threads so they never stall the async event loop.</li>
+            <li>Cut repeat latency with a <b>thread-safe, disk-backed cache</b> (atomic writes, per-resource TTLs) and <b>background cache-warming on startup</b>, so the first visitor after a restart still hits warm data.</li>
+          </ul>
+          <div class="card__stack">
+            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Vite</span><span class="chip">TanStack Query</span><span class="chip">NBA API</span>
+          </div>
+        </article>
+
+        <article class="card reveal" @pointermove="onMove">
           <div class="card__top">
             <div class="card__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18" /><path d="M6.5 6.5h.01M9 6.5h.01" /></svg>
