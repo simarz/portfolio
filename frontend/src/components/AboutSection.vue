@@ -14,19 +14,19 @@
       <div class="about__grid">
         <div class="about__text reveal">
           <p class="about__p">
-            I'm a Computer Science student at <b>Stony Brook University</b>.
+            I'm Gursimar, a Computer Science student at Stony Brook University. 
           </p>
           <p class="about__p">
-            Most recently I helped rebuild <b>Blackfacts.com/news (not yet pushed to prod)</b> as part of a 3-person team
-            at 
-            <a href="https://www.rfcuny.org/RFWebsite/" target="_blank" rel="noopener"><b>RFCUNY</b> ↗</a>
-            , owning React components on the front end and Python services on the
-            back end for an article database of <b>over a million records</b>.
+            Right now I'm an AI Product Engineer Intern< at Waresport, building
+            LLM-powered automations for club onboarding and operations, plus internal tools and
+            client-facing tools for the team and the clubs we work with.
           </p>
           <p class="about__p">
             Outside of class I ship side projects: a serverless Gmail follow-up agent on Azure and
-            a Discord bot that ran in 200+ communities. I'm currently working through the
-            <a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" rel="noopener"><b>Machine Learning Specialization</b> ↗</a>.
+            a Discord bot that ran in 200+ communities. 
+          </p>
+          <p class="about__p">
+            I also love basketball, I try to play minimum once a week, and video games.
           </p>
           <div class="quick_links">
           
@@ -48,9 +48,8 @@
           </div>
           <div class="spec__body">
             <div class="spec__row"><span class="spec__k">name</span><span class="spec__v">Gursimar Gill</span></div>
-            <div class="spec__row"><span class="spec__k">role</span><span class="spec__v">Software Engineer</span></div>
             <div class="spec__row"><span class="spec__k">school</span><span class="spec__v">Stony Brook University</span></div>
-            <div class="spec__row"><span class="spec__k">focus</span><span class="spec__v">Full-stack · <span class="accent">Machine Learning</span></span></div>
+            <div class="spec__row"><span class="spec__k">focus</span><span class="spec__v">Full-stack · <span class="accent">AI/Machine Learning</span></span></div>
             <div class="spec__sep"></div>
             <div class="spec__row"><span class="spec__k">grad</span><span class="spec__v">Dec 2028 · GPA <span class="accent">3.84</span></span></div>
             <div class="spec__sep"></div>

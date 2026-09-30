@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ResumeMenu from './ResumeMenu.vue'
+
 const year = new Date().getFullYear()
 </script>
 
@@ -11,7 +13,7 @@ const year = new Date().getFullYear()
       <div class="footer__links">
         <a href="https://linkedin.com/in/gursimargill" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a href="mailto:gursimargill1@gmail.com">Email ↗</a>
-        <a href="/Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+        <ResumeMenu trigger-class="footer__resume" placement="up" />
       </div>
     </div>
   </footer>

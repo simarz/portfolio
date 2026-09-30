@@ -32,10 +32,10 @@ function onMove(e: PointerEvent) {
           <h3 class="card__title">HoopPulse</h3>
           <p class="card__tagline">A full-stack NBA analytics dashboard with live scores, player &amp; team stats, and data-backed betting prop picks.</p>
           <ul class="card__points">
-            <li>Built a full-stack NBA analytics dashboard, a <b>React 19 + TypeScript</b> front end (Vite, TanStack Query, React Router) on a <b>Python (FastAPI)</b> back end. Serves live scoreboards, league-wide player/team stats, and betting prop recommendations.</li>
-            <li>Engineered a <b>prop recommendation engine</b> that scores each player line by how often the player cleared it across their last 5 games, fanning out the per-player game-log lookups concurrently with <b>asyncio</b> and a bounded semaphore to stay within NBA API limits.</li>
-            <li>Aggregates two live third-party feeds <b>stats.nba.com</b> (via <b>nba_api</b>) and <b>The Odds API</b> offloading their blocking calls to worker threads so they never stall the async event loop.</li>
-            <li>Cut repeat latency with a <b>thread-safe, disk-backed cache</b> (atomic writes, per-resource TTLs) and <b>background cache-warming on startup</b>, so the first visitor after a restart still hits warm data.</li>
+            <li>Built a full-stack NBA analytics dashboard, a React 19 + TypeScript front end (Vite, TanStack Query, React Router) on a Python (FastAPI) back end. Serves live scoreboards, league-wide player/team stats, and betting prop recommendations.</li>
+            <li>Engineered a prop recommendation engine that scores each player line by how often the player cleared it across their last 5 games, fanning out the per-player game-log lookups concurrently with asyncio and a bounded semaphore to stay within NBA API limits.</li>
+            <li>Aggregates two live third-party feeds stats.nba.com (via nba_api) and The Odds API offloading their blocking calls to worker threads so they never stall the async event loop.</li>
+            <li>Cut repeat latency with a thread-safe, disk-backed cache (atomic writes, per-resource TTLs) and background cache-warming on startup, so the first visitor after a restart still hits warm data.</li>
           </ul>
           <div class="card__stack">
             <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Vite</span><span class="chip">TanStack Query</span><span class="chip">NBA API</span>
@@ -55,9 +55,9 @@ function onMove(e: PointerEvent) {
           <h3 class="card__title">This Website</h3>
           <p class="card__tagline">A full-stack portfolio served as a single Rust binary, the site you're reading now.</p>
           <ul class="card__points">
-            <li>Built a <b>Vue 3 + TypeScript</b> single-page front end and a <b>Rust (Axum)</b> back end that serves both the SPA and a JSON API from <b>one binary</b>.</li>
-            <li>Implemented a working <b>contact form</b> with shared client/server validation that persists submissions on the server.</li>
-            <li>Self-hosted on an <b>AWS EC2</b> free-tier instance behind <b>Caddy</b> with automatic HTTPS, fronted by Cloudflare DNS.</li>
+            <li>Built a Vue 3 + TypeScript single-page front end and a Rust (Axum) back end that serves both the SPA and a JSON API from one binary.</li>
+            <li>Implemented a working contact form with shared client/server validation that persists submissions on the server.</li>
+            <li>Self-hosted on an AWS EC2 free-tier instance behind Caddy with automatic HTTPS, fronted by Cloudflare DNS.</li>
             <li>Deploys as a single systemd service with a one-command build-and-restart update script.</li>
           </ul>
           <div class="card__stack">
@@ -77,9 +77,9 @@ function onMove(e: PointerEvent) {
           <h3 class="card__title">Founder Follow-up Agent</h3>
           <p class="card__tagline">A zero-touch daily agent that tracks outreach and follow-ups from your inbox.</p>
           <ul class="card__points">
-            <li>Automated a manual outreach-tracking workflow into a <b>zero-touch daily process</b>, eliminating all manual logging of sent emails and follow-ups.</li>
+            <li>Automated a manual outreach-tracking workflow into a zero-touch daily process, eliminating all manual logging of sent emails and follow-ups.</li>
             <li>Scans Gmail threads via the Gmail API, extracts contact and timestamp metadata, and persists state programmatically.</li>
-            <li>Runs unattended in the cloud at <b>~$0 infra cost</b> (Azure free grant) via a timer-triggered serverless function with state in Blob Storage.</li>
+            <li>Runs unattended in the cloud at ~$0 infra cost (Azure free grant) via a timer-triggered serverless function with state in Blob Storage.</li>
             <li>Reply detection keys off the most recent sent message, auto-resetting the 7-day reminder window to avoid false flags.</li>
           </ul>
           <div class="card__stack">
@@ -99,7 +99,7 @@ function onMove(e: PointerEvent) {
           <h3 class="card__title">Discord Bot</h3>
           <p class="card__tagline">A moderation, entertainment, and polling bot running in 200+ communities.</p>
           <ul class="card__points">
-            <li>Built a Python Discord bot used in <b>200+ communities</b> for moderation, entertainment, and polling — <b>verified by Discord</b>.</li>
+            <li>Built a Python Discord bot used in 200+ communities for moderation, entertainment, and polling — verified by Discord.</li>
           </ul>
           <div class="card__stack">
             <span class="chip">Python</span><span class="chip">discord.py</span><span class="chip">Git</span>

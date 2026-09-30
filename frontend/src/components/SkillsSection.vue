@@ -1,10 +1,10 @@
 <script setup lang="ts">
 const groups = [
-  { label: 'Languages', items: ['Rust', 'Python', 'TypeScript', 'JavaScript', 'C++', 'Java'] },
-  { label: 'Frameworks', items: ['Vue.js', 'React.js', 'Axum', 'FastAPI', 'Node.js', 'discord.py'] },
+  { label: 'Languages', items: ['Rust', 'C++', 'Python', 'Java', 'TypeScript', 'JavaScript', 'HTML', 'CSS'] },
+  { label: 'Frameworks', items: ['React.js', 'Vue.js', 'Node.js', 'FastAPI', 'Axum', 'SCSS'] },
   {
     label: 'Tools & Tech',
-    items: ['Git / GitHub', 'REST APIs', 'OpenAPI/Swagger', 'LLM Integration', 'SCSS', 'Microsoft Azure'],
+    items: ['Claude AI', 'Git / GitHub', 'Microsoft Azure', 'AWS', 'Cloudflare', 'REST APIs', 'OpenAPI/Swagger'],
   },
 ]
 </script>

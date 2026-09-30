@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
+import ResumeMenu from './ResumeMenu.vue'
 
 const links = [
   { n: '01', label: 'About', href: '#about' },
@@ -34,7 +35,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         <a v-for="l in links" :key="l.href" class="nav__link" :href="l.href">
           <i>{{ l.n }}</i>{{ l.label }}
         </a>
-        <a class="nav__resume" href="/Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+        <ResumeMenu trigger-class="nav__resume" />
       </nav>
 
       <button

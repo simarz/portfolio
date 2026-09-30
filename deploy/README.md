@@ -49,8 +49,8 @@ git clone https://github.com/<you>/<repo>.git portfolio && cd portfolio
 scp -i your-key.pem -r "c:\Users\mineb\Desktop\Portfolio Website" ubuntu@YOUR_IP:~/portfolio
 ```
 
-> **Resume:** make sure `frontend/public/Resume.pdf` exists *before* building, or the
-> nav/footer Resume link will 404. (Drop your PDF there now if you haven't.)
+> **Resume:** make sure both resume PDFs listed in `frontend/src/components/ResumeMenu.vue`
+> exist in `frontend/public/` *before* building, or the nav/footer Resume links will 404.
 
 ## 4. Build + install the service
 
