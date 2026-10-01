@@ -26,7 +26,7 @@
             a Discord bot that ran in 200+ communities. 
           </p>
           <p class="about__p">
-            I also love basketball, I try to play minimum once a week, and video games.
+            I also love basketball, I try to play minimum once a week. My curiosity for solving problems stems from my love video games.
           </p>
           <div class="quick_links">
           
