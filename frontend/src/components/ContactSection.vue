@@ -94,7 +94,7 @@ async function submit() {
   <section class="section" id="contact">
     <div class="container">
       <div class="shead reveal">
-        <span class="shead__index">05</span>
+        <span class="shead__index">04</span>
         <h2 class="shead__title">Get in touch</h2>
         <span class="shead__rule"></span>
       </div>

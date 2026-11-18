@@ -1,5 +1,12 @@
 <script setup lang="ts">
-// Static about content.
+const groups = [
+  { label: 'Languages', items: ['Rust', 'C++', 'Python', 'Java', 'TypeScript', 'JavaScript', 'HTML', 'CSS'] },
+  { label: 'Frameworks', items: ['React.js', 'Vue.js', 'Node.js', 'FastAPI', 'Axum', 'SCSS'] },
+  {
+    label: 'Tools & Tech',
+    items: ['Claude AI', 'Git / GitHub', 'Microsoft Azure', 'AWS', 'Cloudflare', 'REST APIs', 'OpenAPI/Swagger'],
+  },
+]
 </script>
 
 <template>
@@ -33,8 +40,6 @@
           
         </div>
           <div class="about__actions">
-            <a class="btn btn--primary" href="#projects">Projects <span class="arr">→</span></a>
-            <a class="btn btn--primary" href="#contact">Get in touch <span class="arr">→</span></a>
             <a class="btn" href="https://linkedin.com/in/gursimargill" target="_blank" rel="noopener">LinkedIn ↗</a>
             <a class="btn" href="https://github.com/simarz" target="_blank" rel="noopener">GitHub ↗</a>
             
@@ -56,6 +61,18 @@
             <div class="spec__row"><span class="spec__k">status</span><span class="spec__v spec__status"><span class="spec__dot"></span>Open to internships</span></div>
           </div>
         </aside>
+      </div>
+
+      <h3 class="about__sub reveal">Tools I work with</h3>
+      <div class="skills__grid reveal">
+        <div v-for="g in groups" :key="g.label" class="skillcol">
+          <p class="skillcol__label">
+            {{ g.label }} <i>// {{ String(g.items.length).padStart(2, '0') }}</i>
+          </p>
+          <div class="skillcol__items">
+            <span v-for="item in g.items" :key="item" class="tag">{{ item }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
